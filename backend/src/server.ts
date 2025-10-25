@@ -12,7 +12,6 @@ const httpServer = createServer(app);
 // Configure CORS - Allow multiple origins for development and production
 const allowedOrigins = [
   config.CLIENT_URL,
-  'https://crypto-dashboard-green-nine.vercel.app',
   'http://localhost:3000',
   'http://localhost:3001',
 ];
