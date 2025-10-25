@@ -1,0 +1,35 @@
+### Logs ###
+logs/
+*.log
+
+### Build Artifacts ###
+build/
+dist/
+
+### Dependency Directories ###
+node_modules/
+web_modules/
+
+### Caches ###
+.cache/
+
+### TypeScript ###
+*.tsbuildinfo
+
+### Package Managers ###
+.npm
+
+### Environment Variables ###
+.env
+.env.*
+
+
+### OS Files ###
+.DS_Store
+Thumbs.db
+
+### IDE ###
+.vscode/
+.idea/
+*.swp
+*.swo
