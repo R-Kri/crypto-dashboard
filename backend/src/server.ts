@@ -9,7 +9,7 @@ import { logger } from './utils/logger';
 const app = express();
 const httpServer = createServer(app);
 
-// Configure CORS - Allow multiple origins for development
+// Configure CORS - Allow multiple origins for development and production
 const allowedOrigins = [
   config.CLIENT_URL,
   'http://localhost:3000',
@@ -26,6 +26,7 @@ app.use(cors({
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      logger.warn(`CORS blocked origin: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
@@ -54,16 +55,20 @@ cryptoService.connectAll();
 // API endpoint to get supported symbols
 app.get('/api/symbols', (req, res) => {
   try {
+    logger.info('📊 Fetching supported symbols...');
     const symbols = cryptoService.getSupportedPairs();
+    logger.info(`✅ Returning ${symbols.length} symbols`);
     res.json({
       success: true,
       data: symbols,
+      count: symbols.length,
     });
   } catch (error) {
-    logger.error('Error fetching symbols:', error);
+    logger.error('❌ Error fetching symbols:', error);
     res.status(500).json({
       success: false,
       error: 'Failed to fetch symbols',
+      details: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 });
@@ -71,16 +76,19 @@ app.get('/api/symbols', (req, res) => {
 // API endpoint to get connection status
 app.get('/api/status', (req, res) => {
   try {
+    logger.info('📊 Fetching connection status...');
     const status = cryptoService.getConnectionStatus();
+    logger.info(`✅ Status retrieved for ${status.length} pairs`);
     res.json({
       success: true,
       data: status,
     });
   } catch (error) {
-    logger.error('Error fetching status:', error);
+    logger.error('❌ Error fetching status:', error);
     res.status(500).json({
       success: false,
       error: 'Failed to fetch status',
+      details: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 });
