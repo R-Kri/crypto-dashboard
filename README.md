@@ -2,7 +2,7 @@
 
 A modern, feature-rich cryptocurrency dashboard with real-time price tracking, interactive charts, and price alerts. Built with Next.js, Express, Socket.IO, and WebSockets for seamless real-time data updates.
 
-![Crypto Dashboard](https://img.shields.io/badge/version-2.0.0-blue)
+![Crypto Dashboard](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Node](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
@@ -324,10 +324,6 @@ Contributions are welcome! Please follow these steps:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - Binance for providing free WebSocket API
@@ -339,9 +335,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or support, please open an issue on GitHub.
 
----
-
-**Made with ❤️ and TypeScript**
-
----
 
